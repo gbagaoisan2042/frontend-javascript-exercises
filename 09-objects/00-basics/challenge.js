@@ -6,7 +6,7 @@ module.exports.createCourse = function(courseTitle, courseDuration, courseStuden
 
 module.exports.addProperty = function(object, newProp, newValue) {
 
-  if (object.newProp) {
+  if (object[newProp]) {
     return object
   }
 
@@ -23,10 +23,12 @@ module.exports.formLetter = function(object) {
    return "Hello " + object.recipient + ",\n\n" + object.msg + "\n\nSincerely,\n" + object.sender
 }
 
+
 module.exports.canIGet = function(item, money) {
 
-   var priceList = {};
-   priceList = { MacBook Air: 999, Macbook Pro: 1299, Mac Pro: 2499, Apple Sticker: 1 }
+  var priceList = { "MacBook Air": 999, "MacBook Pro": 1299, "Mac Pro": 2499, "Apple Sticker": 1 }
+
+  return (money >= priceList[item])
 
 }
 
